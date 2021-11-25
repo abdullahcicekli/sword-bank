@@ -1,0 +1,30 @@
+version: '3' #docker-compose versiyonu
+
+services:
+  php: #servis adı
+    image: php:5.6-fpm #image ismi
+    container_name: php5_6 #container adı
+    tty: true #terminalini kullanmak için
+    working_dir: /var/www #cotainer'in hangi dizinde olacağını gösterir. Yani Docker içinde nerede çalışacaksa o dizin ismi verilir.
+    volumes: #docker içindeki üsütünde değişiklik yapmak istediğimiz dosyaları belirtip direk kendi işletim sistemimiz üzerinden okutmaya yarayan parametre.
+      # X-Y => X: Kendi makinemiz | Y: Docker
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini #php klasörümdeki php.ini ile Docker'da /usr/local/etc/php/conf.d klasörü altındaki local.ini dosyasını eşitle
+      - ./project/:/var/www #project klasörümle Docker içindeki /var/www klasçrü aynı olacak.
+    networks:
+      - local-ag
+
+  nginx:
+    image: nginx:1.19.6
+    container_name: nginx1.19
+    tty: true
+    volumes:
+      - ./project/:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/ #içindeki tüm dosyaları alamak için sonuna / koy
+    ports:
+      - 80:80 #içerideki 80(sağ) portunu dışarıya 80(sol) olarak ver
+    networks:
+      - local-ag #oluşturmuş olduğğumuz local-ag networküne bağladık. Birden fazla ağa bağlı tutabiliriz.
+
+networks: #Container'ların iletişimde olabilmesi için bir network oluşturuyoruz.
+  local-ag: #Oluşturduğumuz ağa isim veriyoruz
+    driver: bridge #bridge bağlantı sağlıyoruz.
