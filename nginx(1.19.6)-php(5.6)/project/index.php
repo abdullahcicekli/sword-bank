@@ -12,7 +12,7 @@
 <article>
     <h1>This is a test page.!</h1>
     <div>
-        <p>Built for testing <a href="https://cvepremium.circl.lu/api/cvefor/cpe:2.3:a:nginx:nginx:1.19.16"> <b> nginx:1.19.16<b> </a> and <a href='https://cvepremium.circl.lu/api/cvefor/cpe:2.3:a:php:php:5.6.40'> <b>php:5.6<b></a>  versions. Weaknesses of these products will be checked in our system.</p>
+        <p>Built for testing <a href="https://cvepremium.circl.lu/api/cvefor/cpe:2.3:a:nginx:nginx:1.19.16"> <b> nginx:1.19.16</b> </a> and <a href='https://cvepremium.circl.lu/api/cvefor/cpe:2.3:a:php:php:5.6.40'> <b>php:5.6</b></a>  versions. Weaknesses of these products will be checked in our system.</p>
         <p>Sword-Bank</p>
     </div>
 </article>
