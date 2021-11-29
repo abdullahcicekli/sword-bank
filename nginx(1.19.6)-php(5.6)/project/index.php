@@ -1,5 +1,5 @@
 <!doctype html>
-<title>Site Maintenance</title>
+<title>Sword-Bank</title>
 <style>
   body { text-align: center; padding: 150px; }
   h1 { font-size: 50px; }
